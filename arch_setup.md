@@ -1,7 +1,7 @@
 # Arch setup
 
 ## Install packages
-- base base-devel sudo linux-lts linux-firmware nvidia-lts amd-ucode
+- base base-devel sudo linux-lts linux-firmware nvidia-lts amd-ucode networkmanager
 - grub efibootmgr gnome
 - yay - from github
 - firefox kitty htop neofetch neovim xclip git
