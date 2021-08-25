@@ -11,7 +11,8 @@ Plug 'plasticboy/vim-markdown'
 Plug 'godlygeek/tabular'
 Plug 'preservim/nerdcommenter'
 Plug 'mattn/emmet-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'arzg/vim-rust-syntax-ext'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 cd ~/Desktop/files/coding
