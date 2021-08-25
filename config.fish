@@ -7,39 +7,23 @@ alias open 'code .'
 # Tab completion
 complete -c weather -a "miloslavov topolcany bratislava krusovce"
 
-# Theme config
-set -g theme_short_path yes
+# deno
+set -x DENO_INSTALL /home/michal/.deno
+set -x PATH $DENO_INSTALL/bin:$PATH
 
 # Prompt
 function fish_prompt
-  set -l last_command_status $status
-  set -l cwd
-
-  if test "$theme_short_path" = 'yes'
-    set cwd (basename (prompt_pwd))
-  else
-    set cwd (prompt_pwd)
-  end
-
-  set -l fish     "⋊>"
-  set -l ahead    "↑"
-  set -l behind   "↓"
-  set -l diverged "⥄ "
-  set -l dirty    "⨯"
-  set -l none     "◦"
+  set -l cwd (basename (prompt_pwd))
 
   set -l normal_color     (set_color normal)
-  set -l success_color    (set_color $fish_pager_color_progress 2> /dev/null; or set_color cyan)
-  set -l error_color      (set_color $fish_color_error 2> /dev/null; or set_color red --bold)
-  set -l directory_color  (set_color $fish_color_quote 2> /dev/null; or set_color brown)
-  set -l repository_color (set_color $fish_color_cwd 2> /dev/null; or set_color green)
+  set -l color1           (set_color brmagenta)
+  set -l color2           (set_color brgreen)
+  set -l directory_color  (set_color brown)
 
-  if test $last_command_status -eq 0
-    echo -n -s $success_color $fish $normal_color
-  else
-    echo -n -s $error_color $fish $normal_color
-  end
+  set -l arrow $color1 " ❯"
+  set -l sign $color2 ' $'
 
-  echo -n -s " " $directory_color $cwd $normal_color
+  echo -n -s $sign $normal_color
+  echo -n -s " " $directory_color $cwd $arrow $normal_color
   echo -n -s " "
 end
