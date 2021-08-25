@@ -17,13 +17,13 @@ function fish_prompt
 
   set -l normal_color     (set_color normal)
   set -l color1           (set_color brmagenta)
-  set -l color2           (set_color brgreen)
-  set -l directory_color  (set_color brown)
+  #set -l color2           (set_color brgreen)
+  set -l directory_color  (set_color blue)
 
   set -l arrow $color1 " ❯"
-  set -l sign $color2 ' $'
+  #set -l sign $color2 '$'
 
-  echo -n -s $sign $normal_color
-  echo -n -s " " $directory_color $cwd $arrow $normal_color
+  #echo -n -s $sign $normal_color
+  echo -n -s $directory_color $cwd $arrow $normal_color
   echo -n -s " "
 end
